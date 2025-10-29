@@ -22,8 +22,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #f7f3ea /* deeper earthy green */
-    --foreground: #e8dbc9; /* soft light brown for contrast */
+    --background: #f7f3ea; /* off-white */
+    --foreground: var(--earth);
   }
 }
 
