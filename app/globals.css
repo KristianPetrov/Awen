@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --earth: #2f4f3e; /* earthy green */
+  --brown: #d7c2a7; /* light brown */
+  --maroon: #6b2d2c; /* maroon */
+
+  /* Off-white page background, with dark green as default text */
+  --background: #f7f3ea; /* off-white */
+  --foreground: var(--earth);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-earth: var(--earth);
+  --color-brown: var(--brown);
+  --color-maroon: var(--maroon);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #f7f3ea /* deeper earthy green */
+    --foreground: #e8dbc9; /* soft light brown for contrast */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Candlelight glow behind hero image */
+.candle-core,
+.candle-glow,
+.candle-glow-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: opacity, transform, filter;
+}
+
+.candle-core {
+  width: 22vmin;
+  height: 22vmin;
+  background: radial-gradient(ellipse at 50% 45%,
+    #fff6cf 0%,
+    #ffe29a 35%,
+    rgba(255, 166, 77, 0.45) 60%,
+    transparent 80%
+  );
+  filter: blur(18px);
+  opacity: 0.75;
+  animation: flameCore 1.15s ease-in-out infinite;
+}
+
+.candle-glow {
+  width: 52vmin;
+  height: 52vmin;
+  background: radial-gradient(ellipse at 50% 48%,
+    #ffe6a6 0%,
+    rgba(255, 166, 77, 0.55) 35%,
+    rgba(255, 153, 68, 0.35) 55%,
+    transparent 78%
+  );
+  filter: blur(42px);
+  opacity: 0.5;
+  animation: flameGlow 2.6s ease-in-out infinite;
+  animation-delay: -1.1s;
+}
+
+.candle-glow-2 {
+  width: 72vmin;
+  height: 72vmin;
+  background: radial-gradient(ellipse at 50% 52%,
+    #fff3cc 0%,
+    rgba(255, 193, 112, 0.35) 30%,
+    rgba(255, 153, 68, 0.2) 50%,
+    transparent 85%
+  );
+  filter: blur(64px);
+  opacity: 0.38;
+  animation: flameHalo 3.7s ease-in-out infinite;
+  animation-delay: -0.6s;
+}
+
+@keyframes flameCore {
+  0% { opacity: 0.78; transform: translate(-50%, -50%) translate(0px, 0px) scale(0.98); filter: blur(18px); }
+  12% { opacity: 0.86; transform: translate(-50%, -50%) translate(0.6px, -0.4px) scale(1.02); filter: blur(16px); }
+  25% { opacity: 0.72; transform: translate(-50%, -50%) translate(-0.4px, 0.5px) scale(1.04); filter: blur(17px); }
+  40% { opacity: 0.90; transform: translate(-50%, -50%) translate(0.3px, -0.2px) scale(0.99); filter: blur(18px); }
+  60% { opacity: 0.76; transform: translate(-50%, -50%) translate(-0.5px, 0.4px) scale(1.03); filter: blur(16px); }
+  80% { opacity: 0.88; transform: translate(-50%, -50%) translate(0.4px, -0.3px) scale(1.01); filter: blur(17px); }
+  100% { opacity: 0.78; transform: translate(-50%, -50%) translate(0px, 0px) scale(0.98); filter: blur(18px); }
+}
+
+@keyframes flameGlow {
+  0% { opacity: 0.50; transform: translate(-50%, -50%) translate(0px, 0px) scale(1.00); filter: blur(42px); }
+  25% { opacity: 0.42; transform: translate(-50%, -50%) translate(0.8px, -0.6px) scale(1.03); filter: blur(44px); }
+  50% { opacity: 0.56; transform: translate(-50%, -50%) translate(-0.6px, 0.4px) scale(0.99); filter: blur(41px); }
+  75% { opacity: 0.47; transform: translate(-50%, -50%) translate(0.4px, -0.3px) scale(1.02); filter: blur(43px); }
+  100% { opacity: 0.50; transform: translate(-50%, -50%) translate(0px, 0px) scale(1.00); filter: blur(42px); }
+}
+
+@keyframes flameHalo {
+  0% { opacity: 0.38; transform: translate(-50%, -50%) translate(0px, 0px) scale(1.02); filter: blur(60px); }
+  33% { opacity: 0.32; transform: translate(-50%, -50%) translate(-0.6px, 0.4px) scale(1.04); filter: blur(62px); }
+  66% { opacity: 0.40; transform: translate(-50%, -50%) translate(0.5px, -0.4px) scale(1.00); filter: blur(58px); }
+  100% { opacity: 0.38; transform: translate(-50%, -50%) translate(0px, 0px) scale(1.02); filter: blur(60px); }
 }
