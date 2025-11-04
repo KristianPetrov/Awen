@@ -15,7 +15,7 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-20 bg-brown border-b border-maroon/20">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between md:justify-end px-6 py-3">
         <button
             type="button"
             onClick={toggleMenu}

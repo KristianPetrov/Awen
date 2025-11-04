@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
-      <section className="relative flex min-h-[75vh] md:min-h-[85vh] items-center justify-center px-6 pt-16 sm:pt-20 md:pt-24"> 
+      <section className="relative flex min-h-[75vh] md:min-h-[85vh] items-center justify-center px-6 pt-16 sm:pt-20 md:pt-24">
         <div className="relative z-10 flex flex-col items-center text-center">
           <div className="relative">
             <div className="candle-glow-2" aria-hidden="true"></div>
@@ -15,7 +15,7 @@ export default function Home() {
               width={600}
               height={600}
               priority
-              className="relative z-10 w-auto h-auto"
+              className="relative z-10 w-auto h-auto drop-shadow-[0_8px_12px_rgba(50,25,0,0.35)]"
             />
           </div>
           <h1 className="mt-8 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-maroon">
